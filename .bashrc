@@ -131,4 +131,4 @@ fi
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
-alias config='/usr/bin/git --git-dir=/home/sasha/.cfg/ --work-tree=/home/sasha'
+alias config='/usr/bin/git --git-dir=/home/sasha/.dotfiles/ --work-tree=/home/sasha'
