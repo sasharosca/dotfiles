@@ -123,12 +123,26 @@ export PATH=$PATH:/usr/local/cuda/bin
 #Create LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=:/usr/local/cuda/lib64
 
-if [ ! -L $HOME/drive ]; then
-    ln -s /media/sasha/f65fa336-2754-d901-f04d-a3362754d901/ $HOME/drive
-fi
-
 # virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 alias config='/usr/bin/git --git-dir=/home/sasha/.dotfiles/ --work-tree=/home/sasha'
+
+. "$HOME/.cargo/env"
+
+export FZF_DEFAULT_COMMAND='rg --files'
+
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
+# pnpm
+export PNPM_HOME="/home/sasha/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
